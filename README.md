@@ -1,4 +1,4 @@
-# Robosense LiDAR Driver for Windows OS (MSVS2017Ex)
+# Robosense LiDAR Driver for Windows OS
 
 ## Environment
 * Windows10 64bit
@@ -15,4 +15,4 @@
 
 ## Visualization demo
 
-![demo_image](vis_demo.png)
+![demo_image](https://github.com/Kyungpyo-Kim/robosense_demo_cw/blob/master/vis_demo.PNG)
