@@ -1,4 +1,39 @@
-﻿#pragma once
+﻿/**
+
+	@mainpage Project: RSLIDAR 드라이버
+
+	@section intro
+		- Brief: RS LIDAR Driver for Windows(MSVS)
+		- Details: 
+
+	@section Program
+	    - robosense_demo_cw
+
+	@section InOut 
+		- INPUT: LiDAR data via ethernet
+		- OUTPUT: Point cloud (PCL XYZI type)
+
+	@section  CreateInfo 
+		- Author: kyungpyo.kim@control-works.co.kr
+		- date: 2019/03/08
+
+	@section  ModifyInfo
+		- 2019/03/08
+			-# Doxygen 문서화
+
+	@section Caution
+		-
+
+	@subsection exec 
+		- README.MD 참고
+
+	@section common 
+		- Control-works
+
+*/
+
+/////////////////////////////////////////////////////////////////
+#pragma once
 
 // C
 #include <stdio.h> // to use fopen, fscan and so on, use _CRT_SECURE_NO_WARNINGS in preprocessors
@@ -26,7 +61,14 @@
 #include "sync_queue.hpp"
 
 
-/** \brief robosense lidar driver
+/**
+ *
+ * @brief robosense lidar driver
+ * @details drver 및 API 제공
+ * @see RS16 검증 완료
+ * @todo RS32 디버깅 및 검증 필요
+ * @author kyungpyo.kim@control-works.co.kr
+ * @date 2019-03-08
  *
  */
 class rslidar_driver_cw
@@ -43,11 +85,18 @@ public:
 
 	~rslidar_driver_cw();
 
-////////////////////////////////////////////////////////////////
-/**
-* API
-*/
 public:
+	/**
+	 * @brief API - load configuration parameters from csv files
+	 * @details from ros ROS RSLIDAR DRIVER
+	 * @param std::string anglePath
+	 * @param std::string curvesPath
+	 * @param std::string channelPath
+	 * @param std::string curvesRatePath
+	 * @param std::string model
+	 * @return bool
+	 * @throws 
+	 */
 	bool loadConfigFile(
 		std::string anglePath,
 		std::string curvesPath,
@@ -55,15 +104,42 @@ public:
 		std::string curvesRatePath,
 		std::string model);
 
+	/**
+	* @brief API - start lidar driver
+	* @details 
+	* @param 
+	* @return bool
+	* @throws
+	*/
 	bool start_driver(void);
 
+	/**
+	* @brief API - run lidar driver
+	* @details
+	* @param
+	* @return 
+	* @throws
+	*/
 	void run_driver(void);
+
+	/**
+	* @brief API - wait lidar driver
+	* @details locate on the end of application
+	* @param
+	* @return 
+	* @throws
+	*/
 	void wait_driver(void);
 
+	/**
+	* @brief API - get point cloud
+	* @details 
+	* @param pcl::PointCloud<pcl::PointXYZI>::Ptr& pointcloud
+	* @return bool
+	* @throws
+	*/
 	bool get_point_cloud(
 		pcl::PointCloud<pcl::PointXYZI>::Ptr& pointcloud);
-
-////////////////////////////////////////////////////////////////
 
 
 private:
