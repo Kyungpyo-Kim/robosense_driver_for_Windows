@@ -67,13 +67,13 @@ public:
 
 			viewer->spinOnce();
 
-
+			// --------------------------------------------
 			// --------------------------------------------
 			// 99. Get point cloud data from driver
 			// --------------------------------------------
 			pcl::PointCloud<pcl::PointXYZI>::Ptr outPoints(new pcl::PointCloud<pcl::PointXYZI>);
 			while (!rd.get_point_cloud(outPoints));;
-
+			// --------------------------------------------
 
 			pc_draw->clear();
 			for (auto it = outPoints->begin(); it < outPoints->end(); it += 3) {
@@ -88,6 +88,9 @@ public:
 			}
 		}
 
+		// Be careful!
+		// wait_driver() has to be located at the end of the algorithm(or main function)
+		// refer the join() of the STD Thread
 		rd.wait_driver();
 	};
 };

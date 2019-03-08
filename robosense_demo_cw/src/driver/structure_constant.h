@@ -2,8 +2,9 @@
 
 #include <stdint.h>
 
-/** \brief Constant parameters
- *  \revision 2019-03-05, kyungpyo.kim@control-works.co.kr
+
+/** @brief Constant parameters
+ *  @revision 2019-03-05, kyungpyo.kim@control-works.co.kr
  */
 const double PI = 3.141592;
 // static const float  ROTATION_SOLUTION_ = 0.18f;  //水平角分辨率 10hz
@@ -42,11 +43,11 @@ static const int TEMPERATURE_MIN = 31;
 static uint16_t MSOP_DATA_PORT_NUMBER = 6699;   // rslidar default data port on PC
 static uint16_t DIFOP_DATA_PORT_NUMBER = 7788;  // rslidar default difop data port on PC
 
-
 static const int PACKET_SIZE = 1248;
 static const int BLOCKS_PER_PACKET = 12;
 static const int PACKET_STATUS_SIZE = 4;
 static const int SCANS_PER_PACKET = (SCANS_PER_BLOCK * BLOCKS_PER_PACKET);
+
 
 /** \brief Raw rslidar data block.
  *
@@ -92,8 +93,3 @@ typedef struct raw_packet
 	uint16_t revolution;
 	uint8_t status[PACKET_STATUS_SIZE];
 } raw_packet_t;
-
-typedef struct packet
-{
-	uint8_t data[PACKET_SIZE];
-} packet_t;
