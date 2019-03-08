@@ -13,6 +13,9 @@
   - 속성 >> 구성속성 >> C/C++ >> 전처리기 >> 전처리기 정의 >> 편집 선택
   - **_CRT_SECURE_NO_WARNINGS** 추가
 
+## Build
+  - Doxygen 추가
+
 ## Visualization demo
 
 ![demo_image](https://github.com/Kyungpyo-Kim/robosense_demo_cw/blob/master/vis_demo.PNG)
