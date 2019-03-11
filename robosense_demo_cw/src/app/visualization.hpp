@@ -17,19 +17,14 @@ public:
 	visualization_demo() {};
 
 	~visualization_demo() {};
-
-	void process_ini(void) {
-
-
-	};
-
+	
 	void run() {
 
 		std::string anglePath("cfg/configuration_data/angle.csv");
 		std::string curvesPath("cfg/configuration_data/curves.csv");
 		std::string channelPath("cfg/configuration_data/ChannelNum.csv");
 		std::string curvesRatePath("");
-		std::string model("RS16");
+		std::string model("RS32");
 
 		// 0. initailization
 		rslidar_driver_cw rd;
