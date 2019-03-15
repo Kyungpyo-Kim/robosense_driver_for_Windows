@@ -3,10 +3,10 @@
 #include <fstream>
 
 rslidar_driver_cw::rslidar_driver_cw(
+	std::string model,
 	std::string address,
 	unsigned short msop_port,
 	unsigned short difop_port,
-	std::string model,
 	double cut_angle,
 	double rpm)
 	:
@@ -376,7 +376,7 @@ bool rslidar_driver_cw::get_point_cloud(
 
 	if (pointcloud_.empty()) {
 
-		std::cout << "already you got point cloud already" << std::endl;
+		//std::cout << "already you got point cloud already" << std::endl;
 		return false;
 	}
 
@@ -407,9 +407,8 @@ void rslidar_driver_cw::running_io_service_thread() {
 void rslidar_driver_cw::lidar_scan_processing_thread() {
 	
 	while (true) {
-
+		
 		std::vector<std::vector<uint8_t>> scan;
-
 		if (get_one_scan_packet(scan))
 			scan_que_.push(scan);
 	}
@@ -420,7 +419,6 @@ void rslidar_driver_cw::lidar_scan_processing_thread() {
 void rslidar_driver_cw::point_clooud_parsing_thread(void) {
 
 	while (true) {
-
 		if (scan_que_.empty()) continue;
 
 		std::vector<std::vector<uint8_t>> scan;
@@ -584,7 +582,7 @@ bool rslidar_driver_cw::get_one_scan_packet(std::vector<std::vector<uint8_t>>& s
 // 2019-03-06 initialization by kyungpyo.kim@control-works.co.kr
 void rslidar_driver_cw::get_difop_param(const std::vector<uint8_t>& data){
 
-	std::cout << "Enter difop callback!" << std::endl;
+	//std::cout << "Enter difop callback!" << std::endl;
 
 	if (is_init_curve_)
 	{
@@ -709,7 +707,7 @@ void rslidar_driver_cw::get_difop_param(const std::vector<uint8_t>& data){
 			}
 		}
 	}
-	std::cout << "finish get_difop_param" << std::endl;
+	//std::cout << "finish get_difop_param" << std::endl;
 }
 
 

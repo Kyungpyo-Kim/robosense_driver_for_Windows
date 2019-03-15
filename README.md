@@ -80,4 +80,8 @@ rd.wait_driver();
 
 ## Visualization demo
 
+* 16 채널
 ![demo_image](https://github.com/Kyungpyo-Kim/robosense_demo_cw/blob/master/vis_demo.PNG)
+
+* 32 채널
+![demo_image_32](https://github.com/Kyungpyo-Kim/robosense_demo_cw/blob/master/vis_demo_32.PNG)

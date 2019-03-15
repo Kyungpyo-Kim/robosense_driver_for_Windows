@@ -65,8 +65,8 @@
  *
  * @brief robosense lidar driver
  * @details drver 및 API 제공
- * @see RS16 검증 완료
- * @todo RS32 디버깅 및 검증 필요
+ * @see RS16, RS32 드라이버 검증 완료
+ * @todo difop_port recieve 함수 디버깅 및 검증 필요
  * @author kyungpyo.kim@control-works.co.kr
  * @date 2019-03-08
  *
@@ -76,10 +76,10 @@ class rslidar_driver_cw
 
 public:
 	rslidar_driver_cw(
+		std::string model,
 		std::string address = std::string("192.168.1.200"), // default value
 		unsigned short msop_port = 6699, // default value
-		unsigned short difop_port = 7799,
-		std::string model = std::string("RS16"),
+		unsigned short difop_port = 1111,
 		double cut_angle = -0.01,
 		double rpm = 600.0); // default value
 
